@@ -9,11 +9,11 @@ def get_engine():
     """
     Returns SQLAlchemy engine using credentials from .env
     """
-    POSTGRES_USER = os.environ("POSTGRES_USER")
-    POSTGRES_PASSWORD = os.environ("POSTGRES_PASSWORD")
-    POSTGRES_DB = os.environ("POSTGRES_DB")
-    POSTGRES_HOST = os.environ("POSTGRES_HOST")
-    POSTGRES_PORT = os.environ("POSTGRES_PORT")
+    POSTGRES_USER = os.environ["POSTGRES_USER"]
+    POSTGRES_PASSWORD = os.environ["POSTGRES_PASSWORD"]
+    POSTGRES_DB = os.environ["POSTGRES_DB"]
+    POSTGRES_HOST = os.environ["POSTGRES_HOST"]
+    POSTGRES_PORT = os.environ["POSTGRES_PORT"]
 
     db_url = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
     engine = create_engine(db_url, echo=False)
