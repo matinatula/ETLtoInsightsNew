@@ -6,9 +6,10 @@ from dotenv import load_dotenv
 # Load .env file
 load_dotenv()
 
-DB_HOST = os.environ["POSTGRES_HOST"]
-DB_PORT = os.environ["POSTGRES_PORT"]
-DB_NAME = os.environ["POSTGRES_DB"]
+is_docker = os.path.exists('/.dockerenv')
+DB_HOST = os.environ["POSTGRES_HOST"] if is_docker else "localhost"
+DB_PORT = os.environ["POSTGRES_PORT"] if is_docker else "5432"
+DB_NAME = os.environ["ETL_POSTGRES_DB"]
 DB_USER = os.environ["POSTGRES_USER"]
 DB_PASSWORD = os.environ["POSTGRES_PASSWORD"]
 
