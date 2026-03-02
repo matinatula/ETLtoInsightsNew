@@ -10848,3 +10848,299 @@ File Path                              PID    Runtime      # DAGs    # Errors  L
 /opt/airflow/dags/test_logging_dag.py                           1           0  0.39s           2026-03-02T21:59:51
 /opt/airflow/dags/etl_dag.py                                    1           0  0.76s           2026-03-02T21:59:54
 ================================================================================
+[2026-03-02T22:00:28.058+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.15s           2026-03-02T22:00:22
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.18s           2026-03-02T22:00:22
+/opt/airflow/dags/etl_dag.py                                    1           0  0.82s           2026-03-02T22:00:26
+================================================================================
+[2026-03-02T22:00:58.547+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.17s           2026-03-02T22:00:52
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.19s           2026-03-02T22:00:52
+/opt/airflow/dags/etl_dag.py                                    1           0  1.67s           2026-03-02T22:00:58
+================================================================================
+[2026-03-02T22:01:28.771+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.32s           2026-03-02T22:01:23
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.38s           2026-03-02T22:01:23
+/opt/airflow/dags/etl_dag.py            1826  0.02s             1           0  1.67s           2026-03-02T22:00:58
+================================================================================
+[2026-03-02T22:01:58.794+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.36s           2026-03-02T22:01:54
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.41s           2026-03-02T22:01:54
+/opt/airflow/dags/etl_dag.py                                    1           0  0.53s           2026-03-02T22:01:29
+================================================================================
+[2026-03-02T22:02:28.972+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.18s           2026-03-02T22:02:25
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.21s           2026-03-02T22:02:25
+/opt/airflow/dags/etl_dag.py                                    1           0  0.76s           2026-03-02T22:02:00
+================================================================================
+[2026-03-02T22:02:59.428+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.22s           2026-03-02T22:02:55
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.26s           2026-03-02T22:02:55
+/opt/airflow/dags/etl_dag.py                                    1           0  0.43s           2026-03-02T22:02:40
+================================================================================
+[2026-03-02T22:03:30.174+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.20s           2026-03-02T22:03:26
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.25s           2026-03-02T22:03:26
+/opt/airflow/dags/etl_dag.py                                    1           0  0.54s           2026-03-02T22:03:11
+================================================================================
+[2026-03-02T22:04:00.453+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.15s           2026-03-02T22:03:56
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.18s           2026-03-02T22:03:56
+/opt/airflow/dags/etl_dag.py                                    1           0  0.86s           2026-03-02T22:03:42
+================================================================================
+[2026-03-02T22:04:16.364+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-03-02T22:04:16.385+0000] {manager.py:741} INFO - There are 3 files in /opt/airflow/dags
+[2026-03-02T22:04:30.806+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.18s           2026-03-02T22:04:26
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.20s           2026-03-02T22:04:26
+/opt/airflow/dags/etl_dag.py                                    1           0  0.78s           2026-03-02T22:04:13
+================================================================================
+[2026-03-02T22:05:01.294+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.17s           2026-03-02T22:04:57
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.19s           2026-03-02T22:04:57
+/opt/airflow/dags/etl_dag.py                                    1           0  0.52s           2026-03-02T22:04:44
+================================================================================
+[2026-03-02T22:05:31.351+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.24s           2026-03-02T22:05:28
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.29s           2026-03-02T22:05:28
+/opt/airflow/dags/etl_dag.py                                    1           0  1.13s           2026-03-02T22:05:15
+================================================================================
+[2026-03-02T22:06:01.537+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.92s           2026-03-02T22:06:00
+/opt/airflow/dags/test_logging_dag.py                           1           0  2.41s           2026-03-02T22:06:01
+/opt/airflow/dags/etl_dag.py                                    1           0  0.81s           2026-03-02T22:05:47
+================================================================================
+[2026-03-02T22:06:31.648+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.24s           2026-03-02T22:06:30
+/opt/airflow/dags/test_logging_dag.py   1993  0.01s             1           0  2.41s           2026-03-02T22:06:01
+/opt/airflow/dags/etl_dag.py                                    1           0  1.21s           2026-03-02T22:06:19
+================================================================================
+[2026-03-02T22:07:02.075+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.56s           2026-03-02T22:07:02
+/opt/airflow/dags/test_logging_dag.py   2009  0.02s             1           0  0.09s           2026-03-02T22:06:31
+/opt/airflow/dags/etl_dag.py                                    1           0  4.30s           2026-03-02T22:06:54
+================================================================================
+[2026-03-02T22:07:32.879+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py   2023  0.01s             1           0  0.56s           2026-03-02T22:07:02
+/opt/airflow/dags/test_logging_dag.py   2020  0.02s             1           0  0.17s           2026-03-02T22:07:02
+/opt/airflow/dags/etl_dag.py                                    1           0  0.98s           2026-03-02T22:07:25
+================================================================================
+[2026-03-02T22:08:03.514+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py   2039  0.07s             1           0  0.10s           2026-03-02T22:07:32
+/opt/airflow/dags/test_logging_dag.py   2036  0.30s             1           0  0.11s           2026-03-02T22:07:32
+/opt/airflow/dags/etl_dag.py                                    1           0  0.70s           2026-03-02T22:07:56
+================================================================================
+[2026-03-02T22:08:33.733+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.77s           2026-03-02T22:08:04
+/opt/airflow/dags/test_logging_dag.py                           1           0  1.02s           2026-03-02T22:08:04
+/opt/airflow/dags/etl_dag.py                                    1           0  1.41s           2026-03-02T22:08:28
+================================================================================
+[2026-03-02T22:09:03.915+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.14s           2026-03-02T22:08:34
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.16s           2026-03-02T22:08:34
+/opt/airflow/dags/etl_dag.py                                    1           0  0.43s           2026-03-02T22:08:59
+================================================================================
+[2026-03-02T22:09:17.083+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-03-02T22:09:17.105+0000] {manager.py:741} INFO - There are 3 files in /opt/airflow/dags
+[2026-03-02T22:09:34.379+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.16s           2026-03-02T22:09:05
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.19s           2026-03-02T22:09:05
+/opt/airflow/dags/etl_dag.py                                    1           0  1.06s           2026-03-02T22:09:30
+================================================================================
+[2026-03-02T22:10:04.902+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.20s           2026-03-02T22:09:35
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.22s           2026-03-02T22:09:35
+/opt/airflow/dags/etl_dag.py                                    1           0  0.49s           2026-03-02T22:10:01
+================================================================================
+[2026-03-02T22:10:35.608+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.09s           2026-03-02T22:10:06
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.10s           2026-03-02T22:10:06
+/opt/airflow/dags/etl_dag.py                                    1           0  0.43s           2026-03-02T22:10:31
+================================================================================
+[2026-03-02T22:11:05.749+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.18s           2026-03-02T22:10:36
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.20s           2026-03-02T22:10:36
+/opt/airflow/dags/etl_dag.py                                    1           0  0.50s           2026-03-02T22:11:02
+================================================================================
+[2026-03-02T22:11:35.814+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.10s           2026-03-02T22:11:07
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.10s           2026-03-02T22:11:07
+/opt/airflow/dags/etl_dag.py                                    1           0  0.46s           2026-03-02T22:11:34
+================================================================================
+[2026-03-02T22:12:05.901+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.13s           2026-03-02T22:11:37
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.14s           2026-03-02T22:11:37
+/opt/airflow/dags/etl_dag.py                                    1           0  0.59s           2026-03-02T22:12:04
+================================================================================
+[2026-03-02T22:12:35.982+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.19s           2026-03-02T22:12:08
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.21s           2026-03-02T22:12:08
+/opt/airflow/dags/etl_dag.py                                    1           0  0.74s           2026-03-02T22:12:35
+================================================================================
+[2026-03-02T22:13:06.086+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.15s           2026-03-02T22:12:38
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.17s           2026-03-02T22:12:38
+/opt/airflow/dags/etl_dag.py            2190  0.01s             1           0  0.74s           2026-03-02T22:12:35
+================================================================================
+[2026-03-02T22:13:37.140+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.56s           2026-03-02T22:13:09
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.62s           2026-03-02T22:13:09
+/opt/airflow/dags/etl_dag.py            2206  0.03s             1           0  0.44s           2026-03-02T22:13:06
+================================================================================
+[2026-03-02T22:14:07.547+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_pipeline_new.py                           1           0  0.19s           2026-03-02T22:13:40
+/opt/airflow/dags/test_logging_dag.py                           1           0  0.23s           2026-03-02T22:13:40
+/opt/airflow/dags/etl_dag.py                                    1           0  0.47s           2026-03-02T22:13:37
+================================================================================
+[2026-03-02T22:14:17.274+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-03-02T22:14:17.288+0000] {manager.py:741} INFO - There are 3 files in /opt/airflow/dags
+[2026-03-02T22:14:29.500+0000] {manager.py:1129} WARNING - Skipping processing of missing file: /opt/airflow/dags/etl_pipeline_new.py
+[2026-03-02T22:14:34.672+0000] {manager.py:1129} WARNING - Skipping processing of missing file: /opt/airflow/dags/test_logging_dag.py
+[2026-03-02T22:14:37.711+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/etl_dag.py                           1           0  0.44s           2026-03-02T22:14:08
+================================================================================

@@ -20,8 +20,10 @@ def get_engine(db_name=None):
     POSTGRES_HOST = os.environ["POSTGRES_HOST"]
     POSTGRES_PORT = os.environ["POSTGRES_PORT"]
     POSTGRES_DB = db_name or os.environ.get(
-        "ETL_POSTGRES_DB")  # default ETL DB
+        "ETL_POSTGRES_DB","etl_db")  # default ETL DB
 
     db_url = f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
     engine = create_engine(db_url, echo=False)
     return engine
+
+
