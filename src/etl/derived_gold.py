@@ -35,19 +35,29 @@ def derive_timesheet_metrics():
 
         log.info(f"Loaded {len(df)} rows with columns: {df.columns.tolist()}")
 
+        grace = pd.Timedelta(minutes=5)
+
+        # Late if punched in more than 5 min AFTER scheduled start
         df['late_flag'] = (
             df['scheduled_start_datetime'].notna() &
-            (df['punch_in_datetime'] > df['scheduled_start_datetime'])
+            (df['punch_in_datetime'] > df['scheduled_start_datetime'] + grace)
         ).astype(int)
 
+        # Early departure if punched out more than 5 min BEFORE scheduled end
         df['early_departure_flag'] = (
             df['scheduled_end_datetime'].notna() &
-            (df['punch_out_datetime'] < df['scheduled_end_datetime'])
+            (df['punch_out_datetime'] < df['scheduled_end_datetime'] - grace)
         ).astype(int)
 
+        # Overtime if hours worked more than 5 min worth ABOVE daily scheduled hours
+        df['scheduled_hours'] = (
+            df['scheduled_end_datetime'] - df['scheduled_start_datetime']
+        ).dt.total_seconds() / 3600
+
+
         df['overtime_flag'] = (
-            df['scheduled_weekly_hour'].notna() &
-            (df['hours_worked'] > df['scheduled_weekly_hour'] / 5)
+            df['scheduled_hours'].notna() &
+            (df['hours_worked'] > df['scheduled_hours'] + (5/60))
         ).astype(int)
 
         df.to_sql("timesheet_derived", engine,
