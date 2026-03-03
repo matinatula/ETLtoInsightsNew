@@ -1,0 +1,153 @@
+[2026-03-03T06:14:01.408+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_pipeline.derive_gold manual__2026-03-03T04:40:07.176762+00:00 [queued]>
+[2026-03-03T06:14:01.418+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_pipeline.derive_gold manual__2026-03-03T04:40:07.176762+00:00 [queued]>
+[2026-03-03T06:14:01.418+0000] {taskinstance.py:2170} INFO - Starting attempt 4 of 4
+[2026-03-03T06:14:01.433+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): derive_gold> on 2026-03-03 04:40:07.176762+00:00
+[2026-03-03T06:14:01.441+0000] {standard_task_runner.py:60} INFO - Started process 767 to run task
+[2026-03-03T06:14:01.449+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_pipeline', 'derive_gold', 'manual__2026-03-03T04:40:07.176762+00:00', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpq1f1bscj']
+[2026-03-03T06:14:01.460+0000] {standard_task_runner.py:88} INFO - Job 52: Subtask derive_gold
+[2026-03-03T06:14:01.670+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_pipeline.derive_gold manual__2026-03-03T04:40:07.176762+00:00 [running]> on host ad601963dc0b
+[2026-03-03T06:14:03.308+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='etl_user' AIRFLOW_CTX_DAG_ID='etl_pipeline' AIRFLOW_CTX_TASK_ID='derive_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-03-03T04:40:07.176762+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-03T04:40:07.176762+00:00'
+[2026-03-03T06:14:03.363+0000] {derived_gold.py:58} ERROR - Failed to derive timesheet metrics: (psycopg2.errors.UndefinedFunction) operator does not exist: text = bigint
+LINE 5:                 ON t.client_employee_id = e.client_employee_...
+                                                ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+            SELECT t.*, e.scheduled_weekly_hour
+            FROM timesheet t
+            LEFT JOIN employee e
+                ON t.client_employee_id = e.client_employee_id
+        ]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedFunction: operator does not exist: text = bigint
+LINE 5:                 ON t.client_employee_id = e.client_employee_...
+                                                ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/airflow/src/etl/derived_gold.py", line 25, in derive_timesheet_metrics
+    df = pd.read_sql("""
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1562, in execute
+    return self.con.exec_driver_sql(sql, *args)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1770, in exec_driver_sql
+    return self._exec_driver_sql(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1674, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedFunction) operator does not exist: text = bigint
+LINE 5:                 ON t.client_employee_id = e.client_employee_...
+                                                ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+            SELECT t.*, e.scheduled_weekly_hour
+            FROM timesheet t
+            LEFT JOIN employee e
+                ON t.client_employee_id = e.client_employee_id
+        ]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+[2026-03-03T06:14:03.379+0000] {derived_gold.py:59} ERROR - (psycopg2.errors.UndefinedFunction) operator does not exist: text = bigint
+LINE 5:                 ON t.client_employee_id = e.client_employee_...
+                                                ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+            SELECT t.*, e.scheduled_weekly_hour
+            FROM timesheet t
+            LEFT JOIN employee e
+                ON t.client_employee_id = e.client_employee_id
+        ]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+[2026-03-03T06:14:03.379+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedFunction: operator does not exist: text = bigint
+LINE 5:                 ON t.client_employee_id = e.client_employee_...
+                                                ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/src/etl/derived_gold.py", line 64, in run_all
+    derive_timesheet_metrics()
+  File "/opt/airflow/src/etl/derived_gold.py", line 25, in derive_timesheet_metrics
+    df = pd.read_sql("""
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1562, in execute
+    return self.con.exec_driver_sql(sql, *args)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1770, in exec_driver_sql
+    return self._exec_driver_sql(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1674, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedFunction) operator does not exist: text = bigint
+LINE 5:                 ON t.client_employee_id = e.client_employee_...
+                                                ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+            SELECT t.*, e.scheduled_weekly_hour
+            FROM timesheet t
+            LEFT JOIN employee e
+                ON t.client_employee_id = e.client_employee_id
+        ]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+[2026-03-03T06:14:03.405+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=etl_pipeline, task_id=derive_gold, execution_date=20260303T044007, start_date=20260303T061401, end_date=20260303T061403
+[2026-03-03T06:14:03.425+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 52 for task derive_gold ((psycopg2.errors.UndefinedFunction) operator does not exist: text = bigint
+LINE 5:                 ON t.client_employee_id = e.client_employee_...
+                                                ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: 
+            SELECT t.*, e.scheduled_weekly_hour
+            FROM timesheet t
+            LEFT JOIN employee e
+                ON t.client_employee_id = e.client_employee_id
+        ]
+(Background on this error at: https://sqlalche.me/e/14/f405); 767)
+[2026-03-03T06:14:03.473+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-03-03T06:14:03.550+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -40,9 +40,7 @@ with DAG(
     tags=["ETL", "Medallion"]
 ) as dag:
 
-    # -----------------------------
     # Bronze Layer: Extract
-    # -----------------------------
     extract_employee_task = PythonOperator(
         task_id="extract_employee",
         python_callable=extract_employee,
@@ -55,9 +53,7 @@ with DAG(
         op_kwargs={"folder_path": os.getenv("TIMESHEETS_FOLDER")}
     )
 
-    # -----------------------------
     # Silver Layer: Transform
-    # -----------------------------
     transform_employee_task = PythonOperator(
         task_id="transform_employee",
         python_callable=transform_employee
@@ -68,38 +64,15 @@ with DAG(
         python_callable=transform_timesheet
     )
 
-    # -----------------------------
     # Gold Layer: Derived
-    # -----------------------------
     derive_gold_task = PythonOperator(
         task_id="derive_gold",
         python_callable=derive_gold
     )
 
-    # -----------------------------
-    # Optional: test logging
-    # -----------------------------
-    def test_logging():
-        import logging
-        logger = logging.getLogger(__name__)
-        logger.info("Test log: Airflow logger works!")
-        print("Test print: Airflow print works!")
-
-    test_logging_task = PythonOperator(
-        task_id="test_logging",
-        python_callable=test_logging
-    )
-
-    # -----------------------------
-    # DAG Dependencies
-    # -----------------------------
-
-    # Test logging first (optional)
-    test_logging_task >> [extract_employee_task, extract_timesheets_task]
-
-    # Extract → Transform
+    # Extract -> Transform
     extract_employee_task >> transform_employee_task
     extract_timesheets_task >> transform_timesheet_task
 
-    # Transform → Gold
+    # Transform -> Gold
     [transform_employee_task, transform_timesheet_task] >> derive_gold_task

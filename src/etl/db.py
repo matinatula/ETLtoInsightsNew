@@ -2,7 +2,7 @@
 # DB connection helper
 # get_engine() -> always points to etl_db
 
-# src/etl/utils.py
+# src/etl/db.py
 import os
 from sqlalchemy import create_engine
 from dotenv import load_dotenv

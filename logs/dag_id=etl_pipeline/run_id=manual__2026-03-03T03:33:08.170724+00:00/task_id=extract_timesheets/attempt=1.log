@@ -1,0 +1,20 @@
+[2026-03-03T03:33:12.028+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_pipeline.extract_timesheets manual__2026-03-03T03:33:08.170724+00:00 [queued]>
+[2026-03-03T03:33:12.058+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_pipeline.extract_timesheets manual__2026-03-03T03:33:08.170724+00:00 [queued]>
+[2026-03-03T03:33:12.059+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-03-03T03:33:12.102+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_timesheets> on 2026-03-03 03:33:08.170724+00:00
+[2026-03-03T03:33:12.136+0000] {standard_task_runner.py:60} INFO - Started process 2948 to run task
+[2026-03-03T03:33:12.179+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_pipeline', 'extract_timesheets', 'manual__2026-03-03T03:33:08.170724+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmprk1wtnmi']
+[2026-03-03T03:33:12.189+0000] {standard_task_runner.py:88} INFO - Job 21: Subtask extract_timesheets
+[2026-03-03T03:33:12.409+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_pipeline.extract_timesheets manual__2026-03-03T03:33:08.170724+00:00 [running]> on host ad601963dc0b
+[2026-03-03T03:33:17.838+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='etl_user' AIRFLOW_CTX_DAG_ID='etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_timesheets' AIRFLOW_CTX_EXECUTION_DATE='2026-03-03T03:33:08.170724+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-03T03:33:08.170724+00:00'
+[2026-03-03T03:33:17.850+0000] {extract_bronze.py:40} INFO - Starting timesheet extraction from folder: /opt/airflow/data/timesheets
+[2026-03-03T03:33:21.745+0000] {extract_bronze.py:57} INFO - Extracted 38957 rows from /opt/airflow/data/timesheets/timesheet_202510161124.csv
+[2026-03-03T03:33:22.759+0000] {logging_mixin.py:188} WARNING - /opt/airflow/src/etl/extract_bronze.py:53 DtypeWarning: Columns (0) have mixed types. Specify dtype option on import or set low_memory=False.
+[2026-03-03T03:33:42.218+0000] {extract_bronze.py:57} INFO - Extracted 269921 rows from /opt/airflow/data/timesheets/timesheet_202509151540.csv
+[2026-03-03T03:33:44.815+0000] {extract_bronze.py:57} INFO - Extracted 55435 rows from /opt/airflow/data/timesheets/timesheet_202510161122.csv
+[2026-03-03T03:33:47.835+0000] {extract_bronze.py:57} INFO - Extracted 48258 rows from /opt/airflow/data/timesheets/timesheet_202510161121.csv
+[2026-03-03T03:33:47.842+0000] {extract_bronze.py:61} INFO - Total rows loaded into staging_timesheet: 412571
+[2026-03-03T03:33:47.851+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-03-03T03:33:47.893+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_pipeline, task_id=extract_timesheets, execution_date=20260303T033308, start_date=20260303T033312, end_date=20260303T033347
+[2026-03-03T03:33:47.970+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-03T03:33:48.036+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

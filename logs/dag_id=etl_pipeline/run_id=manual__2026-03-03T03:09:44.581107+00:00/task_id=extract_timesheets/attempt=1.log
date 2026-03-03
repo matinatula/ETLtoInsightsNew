@@ -1,0 +1,135 @@
+[2026-03-03T03:09:51.187+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_pipeline.extract_timesheets manual__2026-03-03T03:09:44.581107+00:00 [queued]>
+[2026-03-03T03:09:51.221+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_pipeline.extract_timesheets manual__2026-03-03T03:09:44.581107+00:00 [queued]>
+[2026-03-03T03:09:51.223+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-03-03T03:09:51.267+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_timesheets> on 2026-03-03 03:09:44.581107+00:00
+[2026-03-03T03:09:51.317+0000] {standard_task_runner.py:60} INFO - Started process 2593 to run task
+[2026-03-03T03:09:51.331+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_pipeline', 'extract_timesheets', 'manual__2026-03-03T03:09:44.581107+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpqci5pcpt']
+[2026-03-03T03:09:51.336+0000] {standard_task_runner.py:88} INFO - Job 5: Subtask extract_timesheets
+[2026-03-03T03:09:51.499+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_pipeline.extract_timesheets manual__2026-03-03T03:09:44.581107+00:00 [running]> on host ad601963dc0b
+[2026-03-03T03:09:52.318+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='etl_user' AIRFLOW_CTX_DAG_ID='etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_timesheets' AIRFLOW_CTX_EXECUTION_DATE='2026-03-03T03:09:44.581107+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-03T03:09:44.581107+00:00'
+[2026-03-03T03:09:52.322+0000] {extract_bronze.py:40} INFO - Starting timesheet extraction from folder: /opt/airflow/data/timesheets
+[2026-03-03T03:09:53.335+0000] {extract_bronze.py:59} ERROR - Failed to extract /opt/airflow/data/timesheets/timesheet_202510161124.csv: (psycopg2.errors.UndefinedColumn) column "client_employee_id|"department_id"|"department_name"|"home_depa" of relation "staging_timesheet" does not exist
+LINE 1: INSERT INTO staging_timesheet ("client_employee_id|""departm...
+                                       ^
+
+[SQL: INSERT INTO staging_timesheet ("client_employee_id|""department_id""|""department_name""|""home_department_id""|""home_department_name""|""pay_code""|""punch_in_comment""|""punch_out_comment""|""hours_worked""|""punch_apply_date""|""punch_in_datetime""|""punch_out_datetime""|""scheduled_start_datetime""|""scheduled_end_datetime""") VALUES (%(client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime")s)]
+[parameters: ({'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|12.50|"2025-10-14"|2025-10-14 19:00:00.000|2025-10-15 07:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100801|||||Hourly|[NULL]|[NULL]|8.50|"2025-10-09"|2025-10-09 07:30:00.000|2025-10-09 16:00:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100801|||||Hourly|[NULL]|[NULL]|8.50|"2025-10-10"|2025-10-10 07:00:00.000|2025-10-10 15:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|12.50|"2025-10-04"|2025-10-04 07:00:00.000|2025-10-04 19:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|12.50|"2025-10-10"|2025-10-10 07:00:00.000|2025-10-10 19:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|12.50|"2025-10-11"|2025-10-11 19:00:00.000|2025-10-12 07:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|6.00|"2025-10-07"|2025-10-07 23:00:00.000|2025-10-08 05:00:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|8.00|"2025-10-13"|2025-10-13 19:00:00.000|2025-10-14 03:00:00.000||'}  ... displaying 10 of 38957 total bound parameter sets ...  {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '104891|||||Hourly|[NULL]|[NULL]|8.50|"2025-10-13"|2025-10-13 15:00:00.000|2025-10-13 23:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '104891|||||Hourly|[NULL]|[NULL]|8.50|"2025-10-15"|2025-10-15 15:00:00.000|2025-10-15 23:30:00.000||'})]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1890, in _execute_context
+    self.dialect.do_executemany(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 982, in do_executemany
+    context._psycopg2_fetched_rows = xtras.execute_values(
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+psycopg2.errors.UndefinedColumn: column "client_employee_id|"department_id"|"department_name"|"home_depa" of relation "staging_timesheet" does not exist
+LINE 1: INSERT INTO staging_timesheet ("client_employee_id|""departm...
+                                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/airflow/src/etl/extract_bronze.py", line 54, in extract_timesheets
+    df.to_sql("staging_timesheet", engine,
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 2878, in to_sql
+    return sql.to_sql(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 769, in to_sql
+    return pandas_sql.to_sql(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1920, in to_sql
+    total_inserted = sql_engine.insert_records(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1470, in insert_records
+    raise err
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1461, in insert_records
+    return table.insert(chunksize=chunksize, method=method)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1023, in insert
+    num_inserted = exec_insert(conn, keys, chunk_iter)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 929, in _execute_insert
+    result = conn.execute(self.table.insert(), data)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1385, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1577, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1890, in _execute_context
+    self.dialect.do_executemany(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 982, in do_executemany
+    context._psycopg2_fetched_rows = xtras.execute_values(
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "client_employee_id|"department_id"|"department_name"|"home_depa" of relation "staging_timesheet" does not exist
+LINE 1: INSERT INTO staging_timesheet ("client_employee_id|""departm...
+                                       ^
+
+[SQL: INSERT INTO staging_timesheet ("client_employee_id|""department_id""|""department_name""|""home_department_id""|""home_department_name""|""pay_code""|""punch_in_comment""|""punch_out_comment""|""hours_worked""|""punch_apply_date""|""punch_in_datetime""|""punch_out_datetime""|""scheduled_start_datetime""|""scheduled_end_datetime""") VALUES (%(client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime")s)]
+[parameters: ({'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|12.50|"2025-10-14"|2025-10-14 19:00:00.000|2025-10-15 07:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100801|||||Hourly|[NULL]|[NULL]|8.50|"2025-10-09"|2025-10-09 07:30:00.000|2025-10-09 16:00:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100801|||||Hourly|[NULL]|[NULL]|8.50|"2025-10-10"|2025-10-10 07:00:00.000|2025-10-10 15:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|12.50|"2025-10-04"|2025-10-04 07:00:00.000|2025-10-04 19:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|12.50|"2025-10-10"|2025-10-10 07:00:00.000|2025-10-10 19:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|12.50|"2025-10-11"|2025-10-11 19:00:00.000|2025-10-12 07:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|6.00|"2025-10-07"|2025-10-07 23:00:00.000|2025-10-08 05:00:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '100715|||||Hourly|[NULL]|[NULL]|8.00|"2025-10-13"|2025-10-13 19:00:00.000|2025-10-14 03:00:00.000||'}  ... displaying 10 of 38957 total bound parameter sets ...  {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '104891|||||Hourly|[NULL]|[NULL]|8.50|"2025-10-13"|2025-10-13 15:00:00.000|2025-10-13 23:30:00.000||'}, {'client_employee_id|"department_id"|"department_name"|"home_department_id"|"home_department_name"|"pay_code"|"punch_in_comment"|"punch_out_comment"|"hours_worked"|"punch_apply_date"|"punch_in_datetime"|"punch_out_datetime"|"scheduled_start_datetime"|"scheduled_end_datetime"': '104891|||||Hourly|[NULL]|[NULL]|8.50|"2025-10-15"|2025-10-15 15:00:00.000|2025-10-15 23:30:00.000||'})]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+[2026-03-03T03:09:53.442+0000] {extract_bronze.py:59} ERROR - Failed to extract /opt/airflow/data/timesheets/timesheet_202509151540.csv: Error tokenizing data. C error: Expected 1 fields in line 17837, saw 3
+Traceback (most recent call last):
+  File "/opt/airflow/src/etl/extract_bronze.py", line 53, in extract_timesheets
+    df = pd.read_csv(file)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 583, in _read
+    return parser.read(nrows)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1704, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 234, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File "pandas/_libs/parsers.pyx", line 814, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 875, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 850, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 861, in pandas._libs.parsers.TextReader._check_tokenize_status
+  File "pandas/_libs/parsers.pyx", line 2029, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 1 fields in line 17837, saw 3
+
+[2026-03-03T03:09:53.466+0000] {extract_bronze.py:59} ERROR - Failed to extract /opt/airflow/data/timesheets/timesheet_202510161122.csv: Error tokenizing data. C error: Expected 1 fields in line 13685, saw 2
+Traceback (most recent call last):
+  File "/opt/airflow/src/etl/extract_bronze.py", line 53, in extract_timesheets
+    df = pd.read_csv(file)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 583, in _read
+    return parser.read(nrows)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1704, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 234, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File "pandas/_libs/parsers.pyx", line 814, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 875, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 850, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 861, in pandas._libs.parsers.TextReader._check_tokenize_status
+  File "pandas/_libs/parsers.pyx", line 2029, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 1 fields in line 13685, saw 2
+
+[2026-03-03T03:09:53.473+0000] {extract_bronze.py:59} ERROR - Failed to extract /opt/airflow/data/timesheets/timesheet_202510161121.csv: Error tokenizing data. C error: Expected 1 fields in line 2917, saw 2
+Traceback (most recent call last):
+  File "/opt/airflow/src/etl/extract_bronze.py", line 53, in extract_timesheets
+    df = pd.read_csv(file)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 583, in _read
+    return parser.read(nrows)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1704, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 234, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File "pandas/_libs/parsers.pyx", line 814, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 875, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 850, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 861, in pandas._libs.parsers.TextReader._check_tokenize_status
+  File "pandas/_libs/parsers.pyx", line 2029, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 1 fields in line 2917, saw 2
+
+[2026-03-03T03:09:53.475+0000] {extract_bronze.py:61} INFO - Total rows loaded into staging_timesheet: 0
+[2026-03-03T03:09:53.475+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-03-03T03:09:53.531+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_pipeline, task_id=extract_timesheets, execution_date=20260303T030944, start_date=20260303T030951, end_date=20260303T030953
+[2026-03-03T03:09:53.634+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-03T03:09:53.868+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

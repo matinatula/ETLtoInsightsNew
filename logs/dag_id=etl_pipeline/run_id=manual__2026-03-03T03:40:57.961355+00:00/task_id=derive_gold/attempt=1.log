@@ -1,0 +1,33 @@
+[2026-03-03T03:49:37.229+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_pipeline.derive_gold manual__2026-03-03T03:40:57.961355+00:00 [queued]>
+[2026-03-03T03:49:37.243+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_pipeline.derive_gold manual__2026-03-03T03:40:57.961355+00:00 [queued]>
+[2026-03-03T03:49:37.244+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-03-03T03:49:37.261+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): derive_gold> on 2026-03-03 03:40:57.961355+00:00
+[2026-03-03T03:49:37.274+0000] {standard_task_runner.py:60} INFO - Started process 282 to run task
+[2026-03-03T03:49:37.278+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_pipeline', 'derive_gold', 'manual__2026-03-03T03:40:57.961355+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpjpcz7os7']
+[2026-03-03T03:49:37.282+0000] {standard_task_runner.py:88} INFO - Job 30: Subtask derive_gold
+[2026-03-03T03:49:37.346+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_pipeline.derive_gold manual__2026-03-03T03:40:57.961355+00:00 [running]> on host ad601963dc0b
+[2026-03-03T03:49:38.209+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='etl_user' AIRFLOW_CTX_DAG_ID='etl_pipeline' AIRFLOW_CTX_TASK_ID='derive_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-03-03T03:40:57.961355+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-03T03:40:57.961355+00:00'
+[2026-03-03T03:49:44.375+0000] {derived_gold.py:40} ERROR - Failed to derive timesheet metrics: 'scheduled_weekly_hour'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'scheduled_weekly_hour'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/airflow/src/etl/derived_gold.py", line 32, in derive_timesheet_metrics
+    df['overtime_flag'] = ((df['hours_worked'] > df['scheduled_weekly_hour'] / 5)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: 'scheduled_weekly_hour'
+[2026-03-03T03:49:44.534+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-03-03T03:49:44.569+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_pipeline, task_id=derive_gold, execution_date=20260303T034057, start_date=20260303T034937, end_date=20260303T034944
+[2026-03-03T03:49:44.639+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-03T03:49:44.688+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
