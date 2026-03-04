@@ -21,7 +21,6 @@ from etl.derived_gold import run_all as derive_gold
 # Add src to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../src'))
 
-# Default args
 default_args = {
     "owner": "etl_user",
     "depends_on_past": False,
@@ -30,8 +29,6 @@ default_args = {
     "retry_delay": timedelta(minutes=5),
 }
 
-
-# DAG definition
 with DAG(
     dag_id="etl_pipeline",
     default_args=default_args,

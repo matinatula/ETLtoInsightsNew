@@ -1,4 +1,4 @@
--- attendance_irregularity_score.sql
+-- Attendance Irregularity Score
 SELECT
     client_employee_id,
     SUM(late_flag) + SUM(early_departure_flag) AS attendance_irregularities

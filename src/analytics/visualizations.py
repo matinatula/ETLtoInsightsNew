@@ -8,7 +8,6 @@ import logging
 import plotly.express as px
 from jinja2 import Template
 
-# Fix import path for Docker
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -19,9 +18,7 @@ logging.basicConfig(
 
 engine = get_engine()
 
-# =============================
 # Paths
-# =============================
 BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 KPI_FOLDER = os.path.join(BASE_DIR, "sql", "analytics_queries")
@@ -33,20 +30,11 @@ HTML_FOLDER = os.path.join(REPORT_FOLDER, "interactive")
 for folder in [CSV_FOLDER, HTML_FOLDER]:
     os.makedirs(folder, exist_ok=True)
 
-# =============================
-# Utility: Run SQL File
-# =============================
-
-
 def run_sql_file(path):
     with open(path, "r") as f:
         query = f.read()
     return pd.read_sql(query, engine)
 
-
-# =============================
-# Run All KPIs
-# =============================
 def run_all_kpis():
     sql_files = glob.glob(os.path.join(KPI_FOLDER, "*.sql"))
     results = {}
@@ -68,10 +56,6 @@ def run_all_kpis():
 
     return results
 
-
-# =============================
-# Visualization Logic
-# =============================
 def visualize_kpis(results):
     interactive_files = []
 
@@ -81,7 +65,6 @@ def visualize_kpis(results):
 
         df = df.fillna("Unknown")
         first_col = df.columns[0].lower()
-        second_col = df.columns[1] if len(df.columns) > 1 else None
         title = name.replace(".sql", "").replace("_", " ").title()
 
         fig = None
@@ -115,9 +98,7 @@ def visualize_kpis(results):
     return interactive_files
 
 
-# =============================
 # Build HTML Dashboard
-# =============================
 def build_dashboard(interactive_files):
     template = """
     <html>
@@ -150,10 +131,6 @@ def build_dashboard(interactive_files):
 
     logging.info(f"Dashboard created: {dashboard_file}")
 
-
-# =============================
-# MAIN
-# =============================
 if __name__ == "__main__":
     logging.info("Starting KPI Analytics & Visualization")
 

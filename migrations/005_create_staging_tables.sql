@@ -1,3 +1,4 @@
+-- 005_create_staging_tables.sql
 CREATE TABLE IF NOT EXISTS staging_employee (
     client_employee_id VARCHAR(50),
     first_name VARCHAR(512),
