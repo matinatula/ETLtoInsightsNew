@@ -2,7 +2,6 @@
 
 from src.etl.db import get_engine
 import os
-import sys
 import glob
 import pandas as pd
 import logging
@@ -10,6 +9,7 @@ import plotly.express as px
 from jinja2 import Template
 
 # Fix import path for Docker
+import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 logging.basicConfig(
@@ -28,10 +28,9 @@ KPI_FOLDER = os.path.join(BASE_DIR, "sql", "analytics_queries")
 
 REPORT_FOLDER = os.path.join(BASE_DIR, "reports")
 CSV_FOLDER = os.path.join(REPORT_FOLDER, "csv")
-PNG_FOLDER = os.path.join(REPORT_FOLDER, "png")
 HTML_FOLDER = os.path.join(REPORT_FOLDER, "interactive")
 
-for folder in [CSV_FOLDER, PNG_FOLDER, HTML_FOLDER]:
+for folder in [CSV_FOLDER, HTML_FOLDER]:
     os.makedirs(folder, exist_ok=True)
 
 # =============================
@@ -44,11 +43,10 @@ def run_sql_file(path):
         query = f.read()
     return pd.read_sql(query, engine)
 
+
 # =============================
 # Run All KPIs
 # =============================
-
-
 def run_all_kpis():
     sql_files = glob.glob(os.path.join(KPI_FOLDER, "*.sql"))
     results = {}
@@ -70,11 +68,10 @@ def run_all_kpis():
 
     return results
 
+
 # =============================
 # Visualization Logic
 # =============================
-
-
 def visualize_kpis(results):
     interactive_files = []
 
@@ -82,43 +79,45 @@ def visualize_kpis(results):
         if df.empty:
             continue
 
-        # Determine chart type
+        df = df.fillna("Unknown")
         first_col = df.columns[0].lower()
         second_col = df.columns[1] if len(df.columns) > 1 else None
-
-        # Fix NaN
-        df = df.fillna("Unknown")
-
-        # Top N for categorical charts
-        df_top = df.sort_values(df.columns[1], ascending=False).head(
-            10) if "employee" in first_col or "department" in first_col else df
-
         title = name.replace(".sql", "").replace("_", " ").title()
 
-        # ================= Interactive Plotly Chart =================
         fig = None
+        # Time-based chart
         if "date" in first_col or "month" in first_col:
             fig = px.line(
                 df, x=df.columns[0], y=df.columns[1], title=title, markers=True)
+            fig.update_xaxes(rangeslider_visible=True)
+            fig.update_layout(height=500, width=900)
+
+        # Categorical chart (employee/department)
         elif "employee" in first_col or "department" in first_col:
+            top_n = min(10, len(df))
+            df_top = df.sort_values(df.columns[1], ascending=False).head(top_n)
             fig = px.bar(
-                df_top, x=df_top.columns[0], y=df_top.columns[1], title=title)
+                df_top, x=df_top.columns[0], y=df_top.columns[1],
+                title=title, hover_data=df_top.columns
+            )
+            fig.update_layout(height=500, width=900)
+
         else:
+            # Skip single-value KPIs
             continue
 
         html_file = os.path.join(HTML_FOLDER, name.replace(".sql", ".html"))
         fig.write_html(html_file)
         interactive_files.append((title, html_file))
-
-        logging.info(f"Saved interactive HTML: {html_file}")
+        logging.info(
+            f"Saved interactive HTML: {name.replace('.sql', '.html')}")
 
     return interactive_files
+
 
 # =============================
 # Build HTML Dashboard
 # =============================
-
-
 def build_dashboard(interactive_files):
     template = """
     <html>
@@ -141,7 +140,9 @@ def build_dashboard(interactive_files):
     """
     t = Template(template)
     html_content = t.render(
-        charts=[(t, os.path.relpath(f, REPORT_FOLDER)) for t, f in interactive_files])
+        charts=[(t, os.path.relpath(f, REPORT_FOLDER))
+                for t, f in interactive_files]
+    )
 
     dashboard_file = os.path.join(REPORT_FOLDER, "index.html")
     with open(dashboard_file, "w") as f:
