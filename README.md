@@ -230,9 +230,17 @@ We need to create ingestion landing tables to be used before Silver-level cleani
 
 ---
 
-## 5) API Surface Summary
+## 5) API 
 
-### Employee (CRUD)
+The API is designed to satisfy two core requirements. The first one is full CRUD operations for `employee` whereas the second one is Read-only access for `timesheet` with employee/date filters.
+
+Authentication and authorization are enforced with JWT and role-based access:
+- `admin`: can create/update/delete employee records and register users
+- `viewer`: read-only access to employee and timesheet data
+
+All protected routes require `Authorization: Bearer <token>`.
+
+### Employee 
 
 - `POST /employees` (admin)
 - `GET /employees` (authenticated)
@@ -240,7 +248,7 @@ We need to create ingestion landing tables to be used before Silver-level cleani
 - `PUT /employees/{employee_id}` (admin)
 - `DELETE /employees/{employee_id}` (admin)
 
-### Timesheet (Read-only)
+### Timesheet 
 
 - `GET /timesheets`
   - Optional filters: `employee_id`, `start_date`, `end_date`
@@ -254,6 +262,7 @@ We need to create ingestion landing tables to be used before Silver-level cleani
 - `POST /auth/login`
 
 ---
+
 
 ## 6) Operational Notes
 
